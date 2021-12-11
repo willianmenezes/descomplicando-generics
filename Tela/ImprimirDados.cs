@@ -4,33 +4,17 @@ namespace DescomplicandoGenerics.Tela
 {
     public static class ImprimirDados
     {
-        public static void ImprimirProdutos(List<Produto> produtos)
+        public static void Imprimir(List<object> objetos)
         {
-            if (produtos.Count == 0)
+            if (objetos.Count == 0)
             {
-                Console.WriteLine("Lista de produtos vazia");
+                Console.WriteLine($"Lista de {objetos.GetType()} vazia");
                 return;
             }
 
-            foreach (var produto in produtos)
+            foreach (var obj in objetos)
             {
-                Console.WriteLine(produto);
-            }
-
-            Console.WriteLine();
-        }
-
-        public static void ImprimirCatgoria(List<Categoria> categorias)
-        {
-            if (categorias.Count == 0)
-            {
-                Console.WriteLine("Lista de categorias vazia");
-                return;
-            }
-
-            foreach (var categoria in categorias)
-            {
-                Console.WriteLine(categoria);
+                Console.WriteLine(obj);
             }
 
             Console.WriteLine();
