@@ -4,15 +4,15 @@ namespace DescomplicandoGenerics.Tela
 {
     public static class ImprimirDados
     {
-        public static void Imprimir(List<object> objetos)
+        public static void Imprimir<T>(List<T> item)
         {
-            if (objetos.Count == 0)
+            if (item.Count == 0)
             {
-                Console.WriteLine($"Lista de {objetos.GetType()} vazia");
+                Console.WriteLine($"Lista de {typeof(T).Name} vazia");
                 return;
             }
 
-            foreach (var obj in objetos)
+            foreach (var obj in item)
             {
                 Console.WriteLine(obj);
             }
