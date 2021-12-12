@@ -1,6 +1,6 @@
 ﻿namespace DescomplicandoGenerics.Domain
 {
-    public class Categoria
+    public class Categoria : Entity
     {
         public Categoria(string nome)
         {

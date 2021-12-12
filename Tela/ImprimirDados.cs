@@ -4,7 +4,7 @@ namespace DescomplicandoGenerics.Tela
 {
     public static class ImprimirDados
     {
-        public static void Imprimir<T>(List<T> item)
+        public static void Imprimir<T>(List<T> item) where T : Entity
         {
             if (item.Count == 0)
             {

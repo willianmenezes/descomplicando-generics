@@ -1,10 +1,9 @@
 ﻿namespace DescomplicandoGenerics.Domain
 {
-    public class Produto
+    public class Produto : Entity
     {
         public Produto(string nome, decimal valor)
         {
-            Id = Guid.NewGuid();
             Nome = nome;
             Valor = valor;
         }
@@ -13,10 +12,7 @@
         public string Nome { get; set; }
         public decimal Valor { get; set; }
 
-        public override string ToString()
-        {
-            return $"{Id} - {Nome} - {Valor}";
-        }
+
 
         public override bool Equals(object? obj)
         {
@@ -26,6 +22,11 @@
                 return false;
 
             return prod.Id == Id;
+        }
+
+        public override string ToString()
+        {
+            return $"{Id} - {Nome} - {Valor}";
         }
     }
 }

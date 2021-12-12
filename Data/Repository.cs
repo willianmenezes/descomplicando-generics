@@ -1,6 +1,8 @@
-﻿namespace DescomplicandoGenerics.Data
+﻿using DescomplicandoGenerics.Domain;
+
+namespace DescomplicandoGenerics.Data
 {
-    public  class Repository<T> where T : class
+    public  class Repository<T> where T : Entity
     {
         private List<T> _itens;
 
