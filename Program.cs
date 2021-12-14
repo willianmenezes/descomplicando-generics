@@ -11,8 +11,8 @@ produtoRepository.Adicionar(new Produto("Tenis", 100));
 categoriaRepository.Adicionar(new Categoria("Vestuario"));
 categoriaRepository.Adicionar(new Categoria("Papelaria"));
 
-ImprimirDados.Imprimir<Produto>(produtoRepository.BuscarTodos());
-ImprimirDados.Imprimir<Categoria>(categoriaRepository.BuscarTodos());
+produtoRepository.BuscarTodos().Imprimir();
+categoriaRepository.BuscarTodos().Imprimir();
 
 // convertendo explicitamente podendo dar excessoes de passarmos algo errado
 var primeiroProduto = produtoRepository.BuscarTodos()[0];

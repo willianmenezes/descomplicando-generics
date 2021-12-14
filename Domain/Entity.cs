@@ -2,7 +2,7 @@
 {
     public abstract class Entity
     {
-        public Entity() => Id = Guid.NewGuid();
+        protected Entity() => Id = Guid.NewGuid();
 
         public Guid Id { get; set; }
         public abstract override string ToString();
