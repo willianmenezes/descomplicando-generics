@@ -1,9 +1,12 @@
 ﻿using DescomplicandoGenerics.Data;
 using DescomplicandoGenerics.Domain;
 using DescomplicandoGenerics.Tela;
+using Microsoft.Extensions.DependencyInjection;
 
-var produtoRepository = new Repository<Produto>();
-var categoriaRepository = new Repository<Categoria>();
+var provider = ConfigurarInjecaoDeDependencia();
+
+var produtoRepository = provider.GetRequiredService<IRepository<Produto>>();
+var categoriaRepository = provider.GetRequiredService<IRepository<Categoria>>();
 
 produtoRepository.Adicionar(new Produto("Caderno", 10));
 produtoRepository.Adicionar(new Produto("Tenis", 100));
@@ -21,3 +24,13 @@ var primeiroProduto = produtoRepository.BuscarTodos()[0];
 var nomeProduto = primeiroProduto.Nome;
 
 Console.WriteLine(nomeProduto);
+
+
+ServiceProvider ConfigurarInjecaoDeDependencia()
+{
+    var servicerCollection = new ServiceCollection();
+
+    servicerCollection.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+    return servicerCollection.BuildServiceProvider();
+}

@@ -2,7 +2,7 @@
 
 namespace DescomplicandoGenerics.Data
 {
-    public  class Repository<T> where T : Entity
+    public  class Repository<T> : IRepository<T> where T : Entity
     {
         private List<T> _itens;
 
